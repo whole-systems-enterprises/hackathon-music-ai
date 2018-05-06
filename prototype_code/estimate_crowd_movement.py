@@ -13,7 +13,6 @@ import time
 #
 job_tag = 'Job-001'
 output_directory = '/home/emily/hackathon-music-ai/output'
-analyze_video = True
 min_ts = 1000 # milliseconds
 interval = 5000
 person_limit = 50
@@ -36,29 +35,27 @@ client_sns = boto3.client('sns')
 #
 # Start AWS Rekognition analysis of video to identify locations and space taken up by human bodies
 #
-if analyze_video:
+response = client.start_person_tracking(
+    Video = {
+        'S3Object' : {
+            'Bucket' : s3_bucket,
+            'Name' : movie_name,
+        }
+    },
+    ClientRequestToken = '1',
+    NotificationChannel = {
+        'SNSTopicArn' : sns_topic_arn,
+        'RoleArn' : role_arn,
 
-    response = client.start_person_tracking(
-        Video = {
-            'S3Object' : {
-                'Bucket' : s3_bucket,
-                'Name' : movie_name,
-            }
-        },
-        ClientRequestToken = '1',
-        NotificationChannel = {
-            'SNSTopicArn' : sns_topic_arn,
-            'RoleArn' : role_arn,
+    },
+    JobTag = job_tag
+)
 
-        },
-        JobTag = job_tag
-    )
-    
-    #
-    # save JobId
-    #
-    with open(output_directory + '/' + job_tag + '.json', 'w') as f:
-        json.dump(response, f, indent=4)
+#
+# save JobId
+#
+with open(output_directory + '/' + job_tag + '.json', 'w') as f:
+    json.dump(response, f, indent=4)
 
 #
 # test job status (I could not [yet] get this to work, so we are crudely waiting ten seconds).
