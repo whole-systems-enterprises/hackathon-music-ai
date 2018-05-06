@@ -1,16 +1,29 @@
+#
+# import required libraries
+#
 import boto3
 import json
-import pprint as pp
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+#
+# user settings (for later movement to command line options and/or a config file).
+#
 job_tag = 'Job-001'
+output_directory = '/home/emily/hackathon-music-ai/output'
 analyze_video = False
 min_ts = 1000 # milliseconds
 interval = 5000
 person_limit = 50
+s3_bucket = 'wse-sagemaker-test'
+movie_name = 'edm-crowd.mp4'
+sns_topic_arn = 'arn:aws:sns:us-west-2:651928424815:CrowdMetrics'
+role_arn = 'arn:aws:iam::651928424815:role/RekognitionRole'
 
+#
+# start rekognition client
+#
 client = boto3.client('rekognition')
 
 
@@ -19,31 +32,29 @@ if analyze_video:
     response = client.start_person_tracking(
         Video = {
             'S3Object' : {
-                'Bucket' : 'wse-sagemaker-test',
-                'Name' : 'edm-crowd.mp4'
+                'Bucket' : s3_bucket,
+                'Name' : movie_name,
             }
         },
         ClientRequestToken = '1',
         NotificationChannel = {
-            'SNSTopicArn' : 'arn:aws:sns:us-west-2:651928424815:CrowdMetrics',
-            'RoleArn' : 'arn:aws:iam::651928424815:role/RekognitionRole'
+            'SNSTopicArn' : sns_topic_arn,
+            'RoleArn' : role_arn,
 
         },
         JobTag = job_tag
     )
     
-    #pp.pprint(response)
 
-    with open('output/' + job_tag + '.json', 'w') as f:
+    with open(output_directory + '/' + job_tag + '.json', 'w') as f:
         json.dump(response, f, indent=4)
 
 
-with open('output/' + job_tag + '.json') as f:
+with open(output_directory + '/' + job_tag + '.json') as f:
     response = json.load(f)
     
 job_id = response['JobId']
 
-#print(job_id)
 
 
 crowd = []
@@ -56,7 +67,7 @@ response = client.get_person_tracking(
 )
 
 crowd.extend(response['Persons'])
-#print(len(crowd))
+
 
 
 on = False
@@ -79,8 +90,7 @@ while on:
     
     crowd.extend(response['Persons'])
     
-#print(len(crowd))
-#pp.pprint(crowd)
+
 
 #
 # reorganize
@@ -111,24 +121,16 @@ df = pd.DataFrame(crowd_reorganized)
 df['interval'] = [int(round(x)) for x in df['timestamp'] / interval]
 
 #
-# filter extreme values
-#
-idx_min = list(df['box_height']).index(max(df['box_height']))
-idx_max = list(df['box_height']).index(min(df['box_height']))
-#df_filtered = df.loc[not df['person_id'].isin([idx_min, idx_max])]
-
-#
-# standard dev of height per person per half-second
+# standard dev of height per person per interval
 #
 df_std = df.groupby(['person_id', 'interval']).agg({'box_height' : ['std'], 'box_width' : ['std']})
 
 df_std_mean = df_std.groupby(['interval']).agg({('box_height', 'std') : ['mean'], ('box_width', 'std') : ['mean']})
 
-print()
-print(df_std_mean)
-print()
-
-
+#
+# save results
+#
+df_std_mean.to_csv(output_directory + '/df_std_mean.csv', index=False)
 
 #
 y = df_std_mean[('box_height', 'std', 'mean')] - min(df_std_mean[('box_height', 'std', 'mean')])
@@ -139,5 +141,5 @@ plt.plot(df_std_mean.index, y)
 plt.ylabel('Crowd Vertical Movement Metric', fontsize=14)
 plt.xlabel('Five-Second Interval', fontsize=14)
 plt.title('Crowd Vertical Movement Metric vs. Time', fontsize=20)
-plt.savefig('/home/emily/Documents/vertical_movement_metric_plot.png')
+plt.savefig(output_directory + '/vertical_movement_metric_plot.png')
 plt.close()
