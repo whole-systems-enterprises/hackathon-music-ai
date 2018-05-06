@@ -15,6 +15,11 @@ from django.views.decorators.csrf import csrf_exempt
 from core.models import MovementMetric
 
 #
+# global settings - should be in a config file
+#
+interval = 5000
+
+#
 # a generic index page
 #
 def index(request):
@@ -169,7 +174,16 @@ def run_rekognition():
 def load_into_database(request):
     df_std_mean = run_rekognition()
 
-    print( df_std_mean[('box_height', 'std', 'mean')] )
-        
+    now = datetime.datetime.now()
+
+    for index, height, width in zip(df_std_mean.index, df_std_mean[('box_height', 'std', 'mean')], df_std_mean[('box_width', 'std', 'mean')]):
+        dt = datetime.timedelta(milliseconds = float(index) * float(interval))
+        ts = now + dt
+        movement_metric = MovementMetric(
+            height_mean_of_standard_deviations = height,
+            width_mean_of_standard_deviations = width,
+            timestamp = ts
+        )
+        movement_metric.save()
 
     return HttpResponse(json.dumps({}))
