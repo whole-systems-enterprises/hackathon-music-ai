@@ -17,7 +17,7 @@ Amazon DeepLens
 
 Amazon Rekognition
 
-#Directories
+# Directories
 
 images - Contains showcase images produced during progress
 
