@@ -4,6 +4,8 @@ Hackathon for Music and AI, specifically Amazon DeepLens, AWS SageMaker, and AWS
 
 We delivered a platform for measuring crowd enthusiasm during music festicals, at concerts, and at discoteques.
 
+# Why This Is Important
+
 Our time-dependent measurements offer the following advantages:
 
     - metrics for concert booking agencies and venues
@@ -17,6 +19,8 @@ Amazon DeepLens
 
 Amazon Rekognition
 
+Amazon SageMaker
+
 # Directories
 
 images - Contains showcase images produced during progress
@@ -26,3 +30,5 @@ django_project - A web application that loads audience euthusiasm metrics into t
 prototype_code - Used for prototyping the code that evenually made its way into the "django_project" directory.
 
 deep-dj-ios - The mobile dashboard for our analytics platform.
+
+aws-lamba - The server-less platform that our applications use.
