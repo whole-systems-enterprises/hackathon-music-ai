@@ -1,8 +1,10 @@
+# Event
+
 Hackathon for Music and AI, specifically Amazon DeepLens, AWS SageMaker, and AWS Rekognition - Los Angeles, California, United States - 5-6 May 2018.
 
 # Project
 
-We delivered a platform for measuring crowd enthusiasm during music festicals, at concerts, and at discoteques.
+We delivered a platform for measuring crowd enthusiasm during music festivals, at concerts, and at discotheques.
 
 # Why This Is Important
 
@@ -23,6 +25,8 @@ Amazon SageMaker
 
 # Directories
 
+research - Market and product research.
+
 images - Contains showcase images produced during progress
 
 django_project - A web application that loads audience euthusiasm metrics into the database for later analysis.
@@ -32,3 +36,7 @@ prototype_code - Used for prototyping the code that evenually made its way into 
 deep-dj-ios - The mobile dashboard for our analytics platform.
 
 aws-lamba - The server-less platform that our applications use.
+
+presentations - Our slidedecks.
+
+videos - Our prototype in action!
