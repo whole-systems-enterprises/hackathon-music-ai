@@ -25,6 +25,4 @@ django_project - A web application that loads audience euthusiasm metrics into t
 
 prototype_code - Used for prototyping the code that evenually made its way into the "django_project" directory.
 
-# deep-dj-ios
-
-The mobile dashboard for our analytics platform.
+deep-dj-ios - The mobile dashboard for our analytics platform.
