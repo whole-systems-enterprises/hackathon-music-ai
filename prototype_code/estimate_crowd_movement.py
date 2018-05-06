@@ -6,13 +6,14 @@ import json
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 #
 # user settings (for later movement to command line options and/or a config file).
 #
 job_tag = 'Job-001'
 output_directory = '/home/emily/hackathon-music-ai/output'
-analyze_video = False
+analyze_video = True
 min_ts = 1000 # milliseconds
 interval = 5000
 person_limit = 50
@@ -20,11 +21,17 @@ s3_bucket = 'wse-sagemaker-test'
 movie_name = 'edm-crowd.mp4'
 sns_topic_arn = 'arn:aws:sns:us-west-2:651928424815:CrowdMetrics'
 role_arn = 'arn:aws:iam::651928424815:role/RekognitionRole'
+wait_time = 10  # seconds
 
 #
 # start rekognition client
 #
 client = boto3.client('rekognition')
+
+#
+# start SNS client
+#
+client_sns = boto3.client('sns')
 
 #
 # Start AWS Rekognition analysis of video to identify locations and space taken up by human bodies
@@ -52,6 +59,11 @@ if analyze_video:
     #
     with open(output_directory + '/' + job_tag + '.json', 'w') as f:
         json.dump(response, f, indent=4)
+
+#
+# test job status (I could not [yet] get this to work, so we are crudely waiting ten seconds).
+#
+time.sleep(wait_time)
 
 #
 # retreive JobId
