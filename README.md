@@ -24,3 +24,7 @@ images - Contains showcase images produced during progress
 django_project - A web application that loads audience euthusiasm metrics into the database for later analysis.
 
 prototype_code - Used for prototyping the code that evenually made its way into the "django_project" directory.
+
+# deep-dj-ios
+
+The mobile dashboard for our analytics platform.
