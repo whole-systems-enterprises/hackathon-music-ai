@@ -25,6 +25,8 @@ Amazon SageMaker
 
 # Directories
 
+research - Market and product research.
+
 images - Contains showcase images produced during progress
 
 django_project - A web application that loads audience euthusiasm metrics into the database for later analysis.
