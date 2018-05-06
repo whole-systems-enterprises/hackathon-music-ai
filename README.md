@@ -32,3 +32,7 @@ prototype_code - Used for prototyping the code that evenually made its way into 
 deep-dj-ios - The mobile dashboard for our analytics platform.
 
 aws-lamba - The server-less platform that our applications use.
+
+presentations - Our slidedecks.
+
+videos - Our prototype in action!
