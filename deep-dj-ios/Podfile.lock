@@ -1,0 +1,53 @@
+PODS:
+  - AWSAuthCore (2.6.17):
+    - AWSCore (= 2.6.17)
+  - AWSCore (2.6.17)
+  - AWSDynamoDB (2.6.17):
+    - AWSCore (= 2.6.17)
+  - AWSMobileClient (2.6.17):
+    - AWSAuthCore (= 2.6.17)
+  - Cartography (3.0.1)
+  - ObjectMapper (3.1.0)
+  - PieCharts (0.0.6)
+  - ReactiveSwift (3.1.0):
+    - Result (~> 3.2)
+  - Result (3.2.4)
+  - SwiftCharts (0.6.1)
+
+DEPENDENCIES:
+  - AWSDynamoDB
+  - AWSMobileClient
+  - Cartography
+  - ObjectMapper
+  - PieCharts
+  - ReactiveSwift
+  - SwiftCharts
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AWSAuthCore
+    - AWSCore
+    - AWSDynamoDB
+    - AWSMobileClient
+    - Cartography
+    - ObjectMapper
+    - PieCharts
+    - ReactiveSwift
+    - Result
+    - SwiftCharts
+
+SPEC CHECKSUMS:
+  AWSAuthCore: 15a48ce8153e6b7b7df763e8df9d993c7797957e
+  AWSCore: 82fbb01d73a22cfae77ac2f03f6073a123092452
+  AWSDynamoDB: bbfc2583819099ccc0ba92eb54cb425049d4278b
+  AWSMobileClient: 7b8dd4ef7a7d5c08f258b547d061c3c2018d32d8
+  Cartography: f8c899bb0f5cf20758644a8eea59a75e98a03a5d
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  PieCharts: f4f866b3ed45dbeda355cc64664091024a9819ee
+  ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SwiftCharts: 77378d6cf667e95f9c79a745b6778e66eed5339c
+
+PODFILE CHECKSUM: 40261c3194e424ffddf5131bd72f137a6104fbdb
+
+COCOAPODS: 1.5.0

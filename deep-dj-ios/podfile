@@ -1,0 +1,18 @@
+ENV["COCOAPODS_DISABLE_STATS"] = "true"
+
+platform :ios, '10.0'
+
+inhibit_all_warnings!
+
+target 'DeepDJ' do
+  use_frameworks!
+
+  pod 'ObjectMapper'
+  pod 'AWSMobileClient'
+  pod 'AWSDynamoDB'
+  pod 'ReactiveSwift'
+  pod 'SwiftCharts'
+  pod 'Cartography'
+  pod 'PieCharts'
+
+end
