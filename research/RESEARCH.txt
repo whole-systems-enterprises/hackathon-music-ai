@@ -1,0 +1,244 @@
+AMBIANCE -- audience engagment detection
+
+"see how artist set the vibe"
+
+P1
+
+- EDM DJ sets are often dynamic and feed off the audience energy
+
+- part of the "set experience" includes the periperal sensory equipment (non-music), primarily lights
+
+- artist needs more control over to sync the entire stage energy to their music
+
+P2 
+
+- Main stages are theme-based and havea a lotof uprfont cost, coordination and are too rigid to tailor to each set
+
+- rigid levels are due to cost, the rigs need to be generic enough for mulitiple uses
+
+- high technical expertise required to modify
+
+P3
+
+- Allow Dj some "vibe setting" priveldges
+
+- thsi will help them engage the crowd more at the level that matches with audio sets they are going towards
+
+- thiss will maximize crowd engagement for ultimate experience
+
+P4
+
+- we could extend the ML and AI use of the DeepLens intatake
+
+- for now we only collect crowd sentiment and motion detection
+
+- will use data from the audience mobility to prodcuce DJ show rankings of up and coming DJ's 
+
+idea "dynamic DJ experience" feedback of the moment you are creating
+
+our device gets frames, computes the scores locally and then sends to the IoT information to AWS -- which then sets off the actions you want
+
+modifes the lights show based on what the crowd is feeling -- if you want more lit then go more lit, if more mellow  then go more mellow
+
+gives a score of how the crowd is doing
+
+you want the DJ to get semi empirical feedback on the crowd -- what vibe do they want are they getting that outcome 
+
+// does vibe flow
+
+that way they can alter the effects 
+
+Incedental use of Data
+
+host/DJ use of data
+
+: how mamy people showed up to the set?
+
+    -match it up with set times and know who pulled attendance
+
+: how engaged was the crows during the set?
+
+    - see what songs were the most lit etc
+
+: get a body count /count fluctuation
+
+    
+
+What is DeepLens?
+
+IoT device that takes in frames and analyses the frames then emits json to AWS servers (optimal for low network usage) / but can also send video over the network/wire for AWS ML api by sending frame by frame
+
+what do we have AWS api's and the ML models that are loaded directly onto the device
+
+What do we want to achieve?
+
+get the crowd and the DJ to be dynamic with each other
+
+ie the DJ can see the crowd's reaction to the music and adjust // or change stage settings to influence how the crowd behaves
+
+how? 
+
+DeepLens -- enhances proximity and geofencint technology
+
+new lineup combinations to attract more new audiences
+
+CRITERIA:
+
+Simplicity
+
+Creativity
+
+Impact
+
+Design
+
+Usage of Featured and Surprise Technology(hardware and surprise api)
+
+Presentation
+
+Judges:
+
+SNR Tech Evangelist - AWS
+
+SNR Software Engineer - Insomniac
+
+Ryan Fay CIO - ACI Specialty Benefits
+
+Jeff Barr - Chief Evangelist -- AWS 
+
+///
+
+stages want a specific theme tied to their ambiance // DJ wants to enhance their performance 
+
+compromise -- have a ambiance MODES 3 modes of audience engagment 
+
+stage timeline -- 
+
+Average display can take up to -- 
+
+750 lights, 1,600 2'-by-2' video tiles 110 strobe lights, 220 moving lights, and 600 LEDs.
+
+ He remembers spending $300,000 on lights and design for the entire festival back in the early 2000s. 
+
+Today's main stage budgets alone run in the millions, bolstered by increased ticket prices, sales, and increasingly lucrative sponsorship deals as electronic music continues its domination of mainstream entertainment.
+
+AMBIANCE -- artist gets more control over the stage experience, music is the main driving force, ambiance would enhance the experience the DJ wants to invoke
+
+dynamic staging -- dj has a say on the senory stimulus, primarily lights and can include other senory effects like co2 tanks and 
+
+major production stages like EDC main stage take million to arrange and use high-end devices and arrays not readily available to the light markets at large. additionally each stage at EDC has a distinct theme or sub-genre that it's catering towards. thus most light shows or visuals are at the hands of the stage director and have small input on what the artist will play.  
+
+DJ tend to play dynamic sets that feed off the energy of the audience, the lights setup takes heavy pre-planning and are usually already pre-programmed sequences.
+
+AMBIANCE will give the artist the ablilty to ensure the peripheral senory experience aligns with atmospheere the are going for. 
+
+each stage has a theme but each artist has their own fluctuations
+
+with ambiance the artist can control the intensity of the peripherals, medium, high, ludacris
+
+this improves the audience engagement, while also providing the artist with a visual on crowd engagment
+
+each artist has their own taste in light
+
+Article Market NOTES:
+
+//
+
+https://www.forbes.com/sites/ryanmac/2016/07/06/electric-daisy-carnivals-main-stage-rotella-edc-insomniac/#1b1f7652d6b7
+
+//
+
+Attention -- 20th anniversary '16 more than 135,000 people attended each night
+
+what it takes to builid stage today is very different than it was a few years ago" (5)
+
+Kinetic Field, a 70,000-person structure that took a month to construct at the Las Vegas Motor Speedway.
+
+The biggest of the festival's eight stages, the 440 feet wide, 700-ton design carried a $3 million price tag that was highlighted by a 90 foot, LED encrusted tree. The stage also featured custom fountains, 33 flame torches, and 1,400 lighting fixtures.
+
+duget$35 million
+
+only recently started turning a profit on the individual event
+
+Live Nation Ent. purchased a controlling interest in 2013
+
+Rotella said he now has the organizational scale and support to improve on margin and promote his company's 12 other large-scale music festivals.
+
+tour parts of it's production -- meaning it will not have to re-create productions in smaller markets / shows
+
+One possibility is to build site-specific stages that would be unique to each market and could be used for more than one 12-month cycle.
+
+ut we are right now considering building a larger production, using it for multiple years and having each market have its own look so that the traveler has the reason to go somewhere and experience something they've never experienced before."
+
+//
+
+https://www.forbes.com/sites/ryanmac/2014/08/19/electric-daisy-carnivals-pasquale-rotella-on-building-a-36-million-dance-music-festival/#2d0cbbb2bfcc
+
+//
+
+edc LV 1st one lost money post 2011 when they got kicked out of LA
+
+$36 million to create.
+
+stakes have changed -- DJ in the corner and paper mache props
+
+DJ's and rising fees
+
+Rotella founded Insomniac in 1993 and threw his first Electric Daisy Carnival at the Shrine Expo Hall in 1995 for 5,000 people
+
+//
+
+https://www.marketplace.org/2018/03/23/life/how-be-lighting-designer
+
+//
+
+You have to have a broad understanding of the big picture, from the site plan, to obviously the budget and fiscal responsibility, and then artist riders, time constraints and available resources. Then on top of that there is a very delicate balance between engineering and science and the artistic vision and the creative side of it.
+
+Being able to draw a pretty picture does not necessarily translate into something that can be built, and drawing a pretty picture that can that can be built in the United States doesn't necessarily mean it can be built in Brazil.
+
+. You have to understand where you're working and what's available to you ... that's how you develop the creative process. For me it's mental, so I'll start thinking about where I want to go, and then it's a sketch book. Then from the sketchbook it goes into the computer and then from the computer we start rendering and start modeling and it's an ongoing process.
+
+//
+
+https://www.billboard.com/articles/news/dance/7833695/steve-lieberman-edc-2017-stage-design
+
+//
+
+400,000 gathering for EDC Las Vegas 2017 
+
+I remember even 10 years ago with Insomniac, the (budget) I spent on producing 10 stages for [owner] Pasqualle [Rotella] is probably what we spend on one stage now, and a small stage,
+
+It all comes down to supply and demand. As the dance community swells, so too do the budgets. EDC ticket-buyers are willing to spend more, so Lieberman and his team can pump more money into bigger, better attractions.
+
+https://www.billboard.com/articles/news/dance/7833695/steve-lieberman-edc-2017-stage-design
+
+https://www.live-production.tv/news/shows/edm-marches-insomniac-sj-lighting-and-elation-gear.html
+
+//
+
+https://thump.vice.com/en_us/article/kb57ze/steve-lieberman-ultra-music-festival-lighting-interview
+
+//
+
+Some artists have more strict demands for others. Save for one song, Knife Party doesn't want to see anything but red light. Carnage only likes to use four distinct colors at a time. Richie Hawtin has a distinct vision for how his visuals and music interact. It's not easy to make all 20-plus artists on one stage happy, but it's his years of experience and ability to adapt that make Lieberman and his team the go-to in their industry.
+
+Designs can go through as many as 20 reiterations, and each of those can fall victim to three or four rewrites
+
+//
+
+https://www.eventbrite.com/blog/4-statistics-defining-the-2016-music-festival-season-ds00/
+
+ According to Billboard, 32 million people go to at least one music festival in the US every year. 
+
+//
+
+https://www.eventbrite.com/blog/the-buzz-on-beacons-introducing-the-latest-festival-technology-ds00/
+
+ operations, marketing, sponsorship, and more
+
+World-famous DJ Tiesto had the highest Audience Retention 
+
+uring his set, the average attendee spent 41:52 minutes actively listening, or 70% of his set.
+
+On average, attendees spent 12 minutes at sponsor activations during the festival.
+
