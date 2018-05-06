@@ -4,6 +4,8 @@ Hackathon for Music and AI, specifically Amazon DeepLens, AWS SageMaker, and AWS
 
 We delivered a platform for measuring crowd enthusiasm during music festicals, at concerts, and at discoteques.
 
+# Why This Is Important
+
 Our time-dependent measurements offer the following advantages:
 
     - metrics for concert booking agencies and venues
