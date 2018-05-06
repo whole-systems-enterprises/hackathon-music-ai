@@ -26,7 +26,9 @@ role_arn = 'arn:aws:iam::651928424815:role/RekognitionRole'
 #
 client = boto3.client('rekognition')
 
-
+#
+# Start AWS Rekognition analysis of video to identify locations and space taken up by human bodies
+#
 if analyze_video:
 
     response = client.start_person_tracking(
@@ -45,20 +47,24 @@ if analyze_video:
         JobTag = job_tag
     )
     
-
+    #
+    # save JobId
+    #
     with open(output_directory + '/' + job_tag + '.json', 'w') as f:
         json.dump(response, f, indent=4)
 
-
+#
+# retreive JobId
+#
 with open(output_directory + '/' + job_tag + '.json') as f:
     response = json.load(f)
     
 job_id = response['JobId']
 
-
-
+#
+# assemble the initial data structure for the crowd
+#
 crowd = []
-
 
 response = client.get_person_tracking(
     JobId = job_id,
@@ -67,8 +73,6 @@ response = client.get_person_tracking(
 )
 
 crowd.extend(response['Persons'])
-
-
 
 on = False
 if 'NextToken' in response:
@@ -90,10 +94,8 @@ while on:
     
     crowd.extend(response['Persons'])
     
-
-
 #
-# reorganize
+# reorganize this data structure into a form easily converted into a DataFrame
 #
 crowd_reorganized = []
 for person in crowd:
@@ -121,10 +123,13 @@ df = pd.DataFrame(crowd_reorganized)
 df['interval'] = [int(round(x)) for x in df['timestamp'] / interval]
 
 #
-# standard dev of height per person per interval
+# calculate standard dev of height per person per interval
 #
 df_std = df.groupby(['person_id', 'interval']).agg({'box_height' : ['std'], 'box_width' : ['std']})
 
+#
+# calculate mean of the individual's standard deviations, per interval
+#
 df_std_mean = df_std.groupby(['interval']).agg({('box_height', 'std') : ['mean'], ('box_width', 'std') : ['mean']})
 
 #
@@ -132,6 +137,8 @@ df_std_mean = df_std.groupby(['interval']).agg({('box_height', 'std') : ['mean']
 #
 df_std_mean.to_csv(output_directory + '/df_std_mean.csv', index=False)
 
+#
+# plot the vertical movement metric
 #
 y = df_std_mean[('box_height', 'std', 'mean')] - min(df_std_mean[('box_height', 'std', 'mean')])
 max_y = max(y)
