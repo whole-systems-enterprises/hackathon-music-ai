@@ -169,7 +169,7 @@ def run_rekognition():
 def load_into_database(request):
     df_std_mean = run_rekognition()
 
-
+    print( df_std_mean[('box_height', 'std', 'mean')] )
         
 
     return HttpResponse(json.dumps({}))
